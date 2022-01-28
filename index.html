@@ -122,7 +122,9 @@
                 });
                 setTimeout(() => {
                     scroll.update();
-                    // console.log(234)
+                    document.querySelector(".header").addEventListener('mousemove', () => {
+                        scroll.update();
+                    })
                 }, 2000)
             }
         });
