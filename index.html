@@ -27,7 +27,8 @@
             font-weight: 400 !important;
         }
         
-        .url {
+        .url,
+        .name {
             word-wrap: break-word;
         }
     </style>
@@ -57,18 +58,18 @@
             <div class="no sm:gcg:1-3 gcg:1-4">No</div>
             <div class="name sm:gcg:3-6 gcg:4-9">Name</div>
             <div class="url sm:gcg:6-10 gcg:9-15">Url</div>
-            <div class="class sm:gcg:10-20 gcg:15-21  ml-2">Class</div>
-            <div class="info"></div>
+            <div class="class sm:gcg:10-12 gcg:15-21 ml-2">Class</div>
+            <div class="info sm:d-block d-none gcg:12-20">Info</div>
         </div>
         <div class="no-list">
-            <!-- <a href="https://www.dieangewandte.at/jart/prj3/angewandte-2016/main.jart?rel=en&content-id=1462559438492&reserve-mode=active&artikel_id=1541170599208" class="text-none">
-                <div class="gcg py-1 px-5 border-bottom-1 text-color-base">
-                    <div class="no sm:gcg:1-3 gcg:1-4">1</div>
-                    <div class="name sm:gcg:3-6 gcg:4-9">University of Applied Sciences and Arts Northwestern Switzerland</div>
-                    <div class="url sm:gcg:6-10 gcg:9-15">https://www.dieangewandte.at/jart/prj3/angewandte-2016/main.jart?rel=en&content-id=1462559438492&reserve-mode=active&artikel_id=1541170599208</div>
-                    <div class="class sm:gcg:10-20 gcg:15-21 ml-2">Book</div>
-                </div>
-            </a> -->
+
+            <!-- <div class="gcg py-1 px-5 border-bottom-1 text-color-base">
+                <div class="no sm:gcg:1-3 gcg:1-4">${index +1}</div>
+                <div class="name sm:gcg:3-6 gcg:4-9">${e[0]}</div>
+                <div class="url sm:gcg:6-10 gcg:9-15"><a href="${e[1]}" class="text-none text-color-base">${e[1]}</a></div>
+                <div class="class sm:gcg:10-12 gcg:15-21 ml-2">${e[3]}</div>
+                <div class="info sm:gcg:12-20 gcg:4-18">${e[2]}</div>
+            </div> -->
         </div>
     </div>
     <div class="footer ccg ccg-2 px-5 py-4" style="--padding: calc(5px + .1vw);">
@@ -93,14 +94,15 @@
             output.forEach((e, index) => {
                 codes.innerHTML = codes.innerHTML + `
                 
-                <a href="${e[1]}" class="text-none">
-                <div class="gcg py-1 px-5 border-bottom-1 text-color-base">
-                    <div class="no sm:gcg:1-3 gcg:1-4">${index +1}</div>
-                    <div class="name sm:gcg:3-6 gcg:4-9">${e[0]}</div>
-                    <div class="url sm:gcg:6-10 gcg:9-15">${e[1]}</div>
-                    <div class="class sm:gcg:10-20 gcg:15-21 ml-2">${e[3]}</div>
-                </div>
-            </a>
+                
+            <div class="gcg py-1 px-5 border-bottom-1 text-color-base">
+                <div class="no sm:gcg:1-3 gcg:1-4">${index +1}</div>
+                <div class="name sm:gcg:3-6 gcg:4-9">${e[0]}</div>
+                <div class="url sm:gcg:6-10 gcg:9-15"><a href="${e[1]}" class="text-none text-color-base">${e[1]}</a></div>
+                <div class="class sm:gcg:10-12 gcg:15-21 ml-2">${e[3]}</div>
+                <div class="info sm:gcg:12-20 gcg:4-18"><br class="d-block sm:d-none">${e[2]}</div>
+            </div>
+            
             
             `
             });
