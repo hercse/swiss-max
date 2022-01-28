@@ -95,6 +95,11 @@
             console.log(output);
             const codes = document.querySelector(".no-list");
             output.forEach((e, index) => {
+                if (e[2] !== '') {
+                    var info = `<div class="mt-2 d-block sm:d-none"></div>` + e[2];
+                } else {
+                    var info = '';
+                }
                 codes.innerHTML = codes.innerHTML + `
                 
                 
@@ -103,7 +108,7 @@
                 <div class="name sm:gcg:3-6 gcg:4-9">${e[0]}</div>
                 <div class="url sm:gcg:6-10 gcg:9-15"><a href="${e[1]}" class="text-none text-color-base">${e[1]}</a></div>
                 <div class="class sm:gcg:10-13 gcg:15-21 ml-2">${e[3]}</div>
-                <div class="info sm:gcg:13-20 gcg:4-18"><br class="d-block sm:d-none"><i>${e[2]}</i></div>
+                <div class="info sm:gcg:13-20 gcg:4-18"><i>${info}</i></div>
             </div>
             
             
